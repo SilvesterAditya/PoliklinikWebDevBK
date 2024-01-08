@@ -2,248 +2,179 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Poliklinik</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
     <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
         }
 
-        /* Section 1: Navbar */
-        .navbar {
-            overflow: hidden;
-            background-color: #318774;
-            font-family: Arial, sans-serif;
-            width: 100%;
-            display: flex;
+        .container-fluid {
+             background-image: url('assets/images/back.jpg');
+             height: 500px;
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover; /* This will ensure that the image covers the entire container, but it may still be a bit zoomed in depending on the image's aspect ratio. */
+            background-position: center; /* This centers the image in the container. */
+
+
         }
 
-        .navbar a {
-            flex-grow: 1;
-            color: #f2f2f2;
-            text-align: left;
-            padding: 20px 25px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            font-size: 24px;
-            padding-left: 100px;
+        .container-fluid h1, .container-fluid h5 {
+            color: #000000;
         }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        .card {
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
         }
 
-        /* Section 2: Banner */
-        .banner-section {
-            font-family: 'Sora', sans-serif;
-            background-color: #318774;
-            background-size: cover;
-            background-position: center;
-            color: #000;
-            padding: 80px 0;
-            height: 45vh;
+        .card:hover {
+            transform: translateY(-10px);
         }
 
-        .banner-section h1 {
+        .btn {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #000000;
             color: #fff;
-            text-align: center;
         }
 
-        .banner-section p {
-            text-align: center;
-        }
-
-        .fade-in {
-            opacity: 1;
-            /* Make text visible by default */
-            transition: opacity 1s ease;
-        }
-
-        /* Section 3: Login */
-        .login-section {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .icon-container {
-            font-family: 'Sora', sans-serif;
-            margin: 100px;
-            text-align: justify;
-            border: 1px solid #ccc;
-            /* Menambahkan border */
-            padding: 20px;
-            /* Menambahkan ruang padding */
-            transition: transform 0.5s, box-shadow 0.5s;
-            /* Animasi transisi transformasi dan bayangan */
-        }
-
-        .icon-container img {
-            width: 100px;
-            /* Example size, adjust as needed */
-            height: auto;
-        }
-
-        .icon-link {
-            color: blue;
-            text-decoration: none;
-        }
-
-        .icon-link:hover {
-            text-decoration: underline;
-        }
-
-
-        /* Section 4: Testimoni */
-        .client_section {
-            text-align: center; /* Center-align the testimonial section */
-            font-family: 'Sora', sans-serif;
-            background-color: #fff;
-        }
-
-        .box {
-            font-family: 'Sora', sans-serif;
+        .testimonial-card {
             background: #fff;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 0 auto 30px; /* Center-align the testimonial boxes and add margin */
-            width: 80%; /* Reduce the width of the testimonial boxes */
-            max-width: 400px; /* Set a maximum width for the testimonial boxes */
-        }
-
-        .box p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .img-box {
-            margin: 0 15px 0 0;
-            width: 60px; /* Increase the width of the img-box */
-            height: 60px; /* Increase the height of the img-box */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
             overflow: hidden;
-            border-radius: 50%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .img-box img {
-            width: 100%;
-            height: auto;
-        }
-
-        .client_info h6 {
-            font-weight: bold;
-            margin: 0;
-            color: #333;
-            text-align: justify;
-        }
-
-        .client_info p {
-            font-size: 0.9em;
-            color: #666;
-            margin: 0;
-            text-align: justify;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .box p{
-            text-align: justify;
+        .container {
+            width: 2000px;
+        }
+
+        .heading_container-heading_center {
+            margin-top; 500px;
         }
     </style>
 </head>
 
-<body>
-    <!-- Section 1: Navbar -->
-    <section class="navigation-bar">
-        <div class="navbar">
-            <a href="#home">Poliklinik Doa Ibu</a>
-        </div>
-    </section>
-
-    <!-- Section 2: Banner -->
-    <section class="banner-section">
-        <div class="container text-right my-5 fade-in">
-            <h1 style="font-size: 56px; font-family: 'Exo 2', sans-serif;"><b>Sistem Temu Janji</b></h1>
-            <h1 style="font-size: 56px; font-family: 'Exo 2', sans-serif;"><b>Pasien - Dokter</b></h1>
-            <p style="font-size: 22px;">Bimbingan Karir 2023 Bidang Website</p>
-        </div>
-    </section>
-
-    <!-- Section 3: Login -->
-    <section class="login-section">
-        <!-- Left Icon and Text -->
-        <div class="col-md-6 icon-container">
-            <img src="asset/images/user.png" alt="First Icon">
-            <h2 style="font-size: 32px; font-family: 'Exo 2', sans-serif;">Login Sebagai Pasien</h2>
-            <p>Apabila Anda adalah seorang Pasien, silahkan Login terlebih dahulu untuk melakukan pendaftaran sebagai
-                Pasien!</p>
-            <a href="controller.php" class="icon-link">Klik Link Berikut -></a>
-        </div>
-
-        <!-- Right Icon and Text -->
-        <div class="col-md-6 icon-container">
-            <img src="asset/images/user.png" alt="Second Icon">
-            <h2 style="font-size: 32px; font-family: 'Exo 2', sans-serif;">Login Sebagai Dokter</h2>
-            <p>Apabila Anda adalah seorang Dokter, silahkan Login terlebih dahulu untuk memulai melayani Pasien!</p>
-            <a href="controller.php" class="icon-link">Klik Link Berikut -></a>
-        </div>
-    </section>
-
-    <!-- Section 4: Testimoni -->
-    <section class="client_section layout_padding">
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2 style="font-size: 32px; font-family: 'Exo 2', sans-serif;">Testimoni Pasien</h2>
-                <p>Para Pasien Yang Setia</p>
-            </div><br><br><br>
-            <div class="row">
-                <!-- Customer 1 -->
-                <div class="row-md-6">
-                    <div class="box">
-                        <div class="profile">
-                            <div class="img-box">
-                                <img src="asset/images/testimoni.png" alt="Client 1">
-                            </div>
-                            <div class="client_info">
-                                <h6>Wahyudi</h6>
-                                <p>Demak</p>
-                            </div>
-                        </div>
-                        <p>Pelayanan di web ini sangat cepat dan mudah, detail histori tercatat lengkap, termasuk catatan obat, harga pelayanan terjangkau, dokter ramah pokoke mantab pol!</p>
+<body class="hold-transition login-page">
+    <div class="container-fluid">
+        <h1 class="font-weight-bold mb-3">Sistem Temu Janji Pasien - Dokter</h1>
+        <h3>
+            Poliklinik Doa Ibu
+        </h3>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-lg-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-user fa-fw mb-3 text-primary" style="font-size: 34px;"></i>
+                        <h3>Pasien</h3>
+                        <p class="card-text">Apabila anda adalah seorang Pasien, Silahkan Login terlebih dahulu untuk
+                            melakukan pendaftaran sebagai pasien</p>
+                        <a href="loginUser.php" class="btn btn-primary btn-block">Login Sebagai Pasien</a>
                     </div>
                 </div>
-                <!-- Customer 2 -->
-                <div class="row-md-6">
-                    <div class="box">
-                        <div class="profile">
-                            <div class="img-box">
-                                <img src="asset/images/testimoni.png" alt="Client 2">
-                            </div>
-                            <div class="client_info">
-                                <h6>Paimin</h6>
-                                <p>Ungaran</p>
-                            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-user-nurse fa-fw mb-3 text-success" style="font-size: 34px;"></i>
+                        <h3>Dokter</h3>
+                        <p class="card-text">Apabila anda adalah seorang Dokter, silahkan Login terlebih dahulu untuk
+                            memulai melayani pasien</p>
+                        <div class="d-grid">
+                            <a href="login.php" class="btn btn-success btn-block">Login Sebagai Dokter</a>
                         </div>
-                        <p>Aku tidak pernah merasakan mudahnya berobat sebelum mengenal web ini, web yang mudah digunakan dan dokter yang terampil membuat berobat menjadi lebih menyenangkan!</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <section class="client_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
 
+    </section>
+           <!-- /.login-box -->
+           <section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container-heading_center">
+            <h2>Testimoni Pasien</h2>
+            <p>Para Pasien Yang Setia</p>
+        </div>
+        <!-- Customer 1 -->
+        <div class="testimonial-card my-4">
+            <div class="card">
+                <div class="card-content">
+                    <div class="img-box">
+                        <img src="assets/images/testimoni.jpg" alt="Client 1">
+                    </div>
+                    <div class="text-content">
+                        <h6>Nopal</h6>
+                        <p class="location">Semarang</p>
+                        <p class="testimonial-text">Pelayanan di web ini sangat cepat dan mudah, detail histori tercatat lengkap, termasuk catatan obat, harga pelayanan terjangkau, dokter ramah pokoke mantab pol!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Customer 2 -->
+        <div class="testimonial-card my-4">
+            <div class="card">
+                <div class="card-content">
+                    <div class="img-box">
+                        <img src="assets/images/testimoni1.jpg" alt="Client 2">
+                    </div>
+                    <div class="text-content">
+                        <h6>Ilyas</h6>
+                        <p class="location">Semarang</p>
+                        <p class="testimonial-text">Aku tidak pernah merasakan mudahnya berobat sebelum mengenal web ini, web yang mudah digunakan dan dokter yang terampil membuat berobat menjadi lebih menyenangkan!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- jQuery -->
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="assets/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

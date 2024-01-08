@@ -4,21 +4,29 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Tambahan CSS -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Overlock SC', sans-serif;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #a6e9a6;
+            background-image: url('assets/images/back.jpg');
+            background-size: 100%;
+            font-size: 25px;
         }
 
         .login-container {
             display: flex;
+            width: 1300px;
             max-width: 1200px;
             /* Ubah max-width sesuai kebutuhan */
             background-color: #fff;
@@ -34,9 +42,12 @@
         }
 
         .left-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 400px;
+            height: 400px;
+            object-fit: contain;
+            margin-left: 150px;
+            margin-top: 110px;
+            
         }
 
         .right-container {
@@ -98,66 +109,33 @@
 <body>
     <div class="login-container">
         <div class="left-container">
-            <img src="asset/images/hospital.jpg" alt="Login Image">
+            <img src="assets/images/doctor.png" alt="Login Image">
         </div>
         <div class="right-container">
             <div class="login-form">
-                <h2>Login </h2>
-                <form id="loginForm">
+                <h4 class="text-center">Login </h4>
+                <p class="login-box-msg text-center">Silahkan login sebagai <b class="text-success">Dokter</b> untuk melanjutkan</p>
+                <br><br>
+                <form action="pages/login/checkLogin.php" method="post">
                     <label for="nama">Username :</label>
-                    <input type="text" id="nama" name="nama" required>
+                    <input type="text" class="form-control" name="username" required>
 
-                    <label for="no_hp">Nomor Handphone :</label>
-                    <input type="password" id="no_hp" name="no_hp" required>
+                    <label for="no_hp">Password :</label>
+                    <input type="password" class="form-control" name="password" required>
 
-                    <button type="button" class="btn btn-primary btn-block" onclick="loginUser()">Login</button>
-
+                    <button type="submit" class="btn btn-block btn-success">
+                        Login
+                    </button>
                 </form>
 
-                <div class="register-link">
-                <p><b>Belum Punya Akun?</b> <a href="register.php">Registrasi disini</a></p>
-                </div>
+            </div>
+            <div class="text-center mt-3">Login Sebagai <a href="loginUser.php"><span
+                        class="text-primary">Pasien</span></a>
             </div>
         </div>
     </div>
+    </div>
 
-    <script>
-        function loginUser() {
-            var nama = document.getElementById('nama').value;
-            var no_hp = document.getElementById('no_hp').value;
-
-            // Kirim data ke PHP untuk proses login
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'process_login.php');
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.status === 'success') {
-                        // Handle login berhasil
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Login Berhasil!',
-                            text: response.welcome_message,
-                            timer: 3000,
-                            showConfirmButton: false
-                        }).then(function () {
-                            window.location.href = response.redirect_url;
-                        });
-                    } else {
-                        // Handle login gagal
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Login Gagal',
-                            text: response.message
-                        });
-                    }
-                }
-            };
-            var params = 'nama=' + nama + '&no_hp=' + no_hp;
-            xhr.send(params);
-        }
-    </script>
 </body>
 
 </html>

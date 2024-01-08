@@ -1,5 +1,15 @@
-# poliklinik doa ibu
+## Admin
 
-# Nama  : Silvester Aditya
+username dan passwor admin
+```
+username : Admin
+password : admin
+```
 
-# NIM   : A11.2020.12868
+## Dokter
+
+username dokter = password dokter
+```
+username : coba
+password : coba
+```
